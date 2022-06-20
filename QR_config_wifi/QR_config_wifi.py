@@ -119,7 +119,9 @@ def connect_wifi(ssid, akm,  key, auth=const.AUTH_ALG_OPEN,cipher=const.CIPHER_T
 if __name__ == "__main__":
     #decode_wifi_info("WIFI:T:WPA;S:xxxx;P:xxxx;;")
     
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)  #打开自带摄像头
+    cap.open(0, cv2.CAP_DSHOW)
+    #cap = cv2.VideoCapture(1)  #打开外部摄像头
     if not cap.isOpened():
         print("Cannot open camera")
         exit()
